@@ -1,11 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿@model ToDoItem
 
-namespace tecni_devops.Views.todoitem
-{
-    public class delete
-    {
-    }
+@{
+    ViewData["Title"] = "Eliminar tarea";
 }
+
+<h2>Eliminar tarea</h2>
+
+<h4>¿Estás seguro de que querés eliminar esta tarea?</h4>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Título</dt>
+        <dd class="col-sm-10">@Model.Titulo</dd>
+
+        <dt class="col-sm-2">¿Completada?</dt>
+        <dd class="col-sm-10">@Model.EstaCompleto</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
