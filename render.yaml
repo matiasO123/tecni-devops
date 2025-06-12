@@ -5,7 +5,7 @@ services:
     plan: free
     region: oregon
     branch: master
-    dockerfilePath: ./tecni-devops/Dockerfile
+    dockerfilePath: ./tecni-devops/dockerfile
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
