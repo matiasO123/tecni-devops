@@ -56,7 +56,7 @@ namespace tecni_devops
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=TodoItem}/{action=Index}/{id?}");
             });
         }
     }
