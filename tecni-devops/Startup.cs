@@ -45,6 +45,14 @@ namespace tecni_devops
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                context.Database.Migrate();
+            }
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -56,7 +64,7 @@ namespace tecni_devops
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=ToDoItem}/{action=Index}/{id?}");
             });
         }
     }
